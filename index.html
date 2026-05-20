@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Шесть качеств руководителя, который вытащит проект автоматизации | XSUD</title>
+<title>Как провести переговоры с поставщиком ПО: схема для юристов | XSUD</title>
 <link rel="icon" href="https://static.tildacdn.com/tild6166-3265-4865-b532-623564636230/x_favicon.ico">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -17,15 +17,13 @@
     overflow-x: hidden;
   }
 
-  /* —— Reading progress —— */
   #progressBar {
     position: fixed; top: 0; left: 0; width: 0%; height: 3px;
     background: #c20020; z-index: 1000; transition: width 0.1s;
   }
 
-  /* —— Hero —— */
   .hero {
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,8 +34,8 @@
   .hero-mesh {
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse at 20% 50%, rgba(194,0,32,0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 30%, rgba(19,41,61,0.4) 0%, transparent 50%),
+      radial-gradient(ellipse at 30% 50%, rgba(194,0,32,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 30%, rgba(19,41,61,0.4) 0%, transparent 50%),
       radial-gradient(ellipse at 50% 80%, rgba(194,0,32,0.04) 0%, transparent 50%);
   }
   .hero-lines {
@@ -64,230 +62,328 @@
     border: 1px solid rgba(255,255,255,0.08); border-radius: 30px;
   }
   .hero h1 {
-    font-size: clamp(32px, 5vw, 56px);
+    font-size: clamp(28px, 4.5vw, 50px);
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1.15;
     color: #fff;
     letter-spacing: -1px;
   }
   .hero h1 span { color: #c20020; }
   .hero p {
-    margin-top: 24px;
+    margin-top: 20px;
     font-size: 18px;
     color: rgba(255,255,255,0.5);
     line-height: 1.6;
-    max-width: 600px;
+    max-width: 640px;
     margin-left: auto; margin-right: auto;
   }
   .hero-arrow {
-    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
     color: rgba(255,255,255,0.15);
     font-size: 24px;
     animation: float 2.5s ease-in-out infinite;
   }
   @keyframes float { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
 
-  /* —— Section —— */
-  .sec { padding: 96px 0; position: relative; }
+  .sec { padding: 80px 0; position: relative; }
   .container { max-width: 820px; margin: 0 auto; padding: 0 32px; }
 
-  /* —— Intro —— */
-  .intro {
-    background: #0f1620;
-    color: rgba(255,255,255,0.7);
+  .section-title {
+    font-size: 28px; font-weight: 700; color: #fff;
+    line-height: 1.2; margin-bottom: 24px;
+    letter-spacing: -0.3px;
   }
-  .intro p {
-    font-size: 18px;
-    line-height: 1.7;
-    margin-bottom: 18px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease;
+  .section-title .num {
+    display: block;
+    font-size: 14px; font-weight: 700; color: #c20020;
+    letter-spacing: 2px; margin-bottom: 6px;
   }
-  .intro p.visible { opacity: 1; transform: translateY(0); }
-  .intro p strong { color: #fff; }
-  .intro sup a { color: #c20020; text-decoration: none; }
+  .section-title .num::before { content: '0'; }
 
-  /* —— Quality card —— */
-  .q-card {
-    background: #111b26;
-    border: 1px solid rgba(255,255,255,0.04);
-    border-radius: 20px;
-    padding: 48px;
-    margin-bottom: 24px;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.7s ease;
+  .body-text {
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 16px;
+    font-size: 17px;
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+  .body-text strong { color: rgba(255,255,255,0.85); }
+
+  .ask-block {
+    margin: 24px 0 20px;
+    padding: 24px 28px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 16px;
+  }
+  .ask-block-title {
+    font-size: 13px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 14px;
+  }
+  .ask-block ul {
+    list-style: none;
+    padding: 0;
+  }
+  .ask-block ul li {
+    color: rgba(255,255,255,0.7);
+    padding: 6px 0 6px 24px;
     position: relative;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .ask-block ul li::before {
+    content: '›';
+    position: absolute; left: 2px;
+    color: #c20020;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .warn-block {
+    padding: 16px 20px;
+    background: rgba(194,0,32,0.06);
+    border-left: 3px solid #c20020;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 28px;
+  }
+  .warn-block strong {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+  }
+  .warn-block span {
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+  }
+
+  /* ── Case accordion ── */
+  .case-card {
+    margin: 32px 0 48px;
+    border-radius: 20px;
     overflow: hidden;
   }
-  .q-card.visible { opacity: 1; transform: translateY(0); }
-  .q-card:hover { border-color: rgba(255,255,255,0.08); }
-  .q-card-num-bg {
-    position: absolute; top: -20px; right: -10px;
-    font-size: 120px; font-weight: 800;
-    color: rgba(255,255,255,0.02);
-    line-height: 1; pointer-events: none;
-    user-select: none;
-  }
-  .q-card-header {
-    display: flex; align-items: center; gap: 16px;
-    margin-bottom: 16px;
-    position: relative; z-index: 1;
-  }
-  .q-card-dot {
-    flex-shrink: 0;
-    width: 12px; height: 12px;
-    background: #c20020;
-    border-radius: 50%;
-  }
-  .q-card h3 {
-    font-size: 24px; font-weight: 700;
-    color: #fff; letter-spacing: -0.3px;
-  }
-  .q-card p {
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 14px;
-    position: relative; z-index: 1;
-  }
-  .q-card a { color: #c20020; text-decoration: none; border-bottom: 1px solid rgba(194,0,32,0.3); }
-  .q-card a:hover { border-bottom-color: #c20020; }
 
-  .research-chip {
-    margin: 14px 0;
-    padding: 14px 20px;
-    background: rgba(255,255,255,0.03);
-    border-left: 2px solid rgba(194,0,32,0.4);
-    border-radius: 0 10px 10px 0;
-    font-size: 14px;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.6;
-    position: relative; z-index: 1;
-  }
-
-  /* —— Diagnostic —— */
-  .diag-box {
-    margin-top: 20px;
-    position: relative; z-index: 1;
-  }
-  .diag-q {
-    font-size: 14px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.8);
-    margin-bottom: 12px;
-    line-height: 1.5;
-  }
-  .diag-opts { display: flex; flex-direction: column; gap: 6px; }
-  .diag-opt {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 16px;
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-size: 14px;
-    color: rgba(255,255,255,0.5);
-  }
-  .diag-opt:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.12); }
-  .diag-opt.selected { background: rgba(194,0,32,0.08); border-color: #c20020; color: #fff; }
-  .diag-opt input { display: none; }
-  .diag-rd {
-    flex-shrink: 0;
-    width: 16px; height: 16px;
-    border: 2px solid rgba(255,255,255,0.15);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.3s;
-  }
-  .diag-opt.selected .diag-rd { border-color: #c20020; }
-  .diag-rd::after {
-    content: '';
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: #c20020;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .diag-opt.selected .diag-rd::after { opacity: 1; }
-  .diag-lbl { flex: 1; }
-  .diag-bdg {
-    font-size: 10px; font-weight: 600; letter-spacing: 1px;
-    text-transform: uppercase; color: rgba(255,255,255,0.2);
-  }
-  .diag-opt.selected .diag-bdg { color: #c20020; }
-
-  /* —— Progress —— */
-  .progress-rail {
+  .case-toggle {
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 20px 24px;
-    background: #111b26;
-    border: 1px solid rgba(255,255,255,0.04);
-    border-radius: 14px;
-    margin: 32px 0 24px;
-  }
-  .progress-rail .label { font-weight: 600; color: #fff; font-size: 14px; }
-  .progress-track { flex: 1; height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
-  .progress-track .fill { height: 100%; background: #c20020; border-radius: 2px; width: 0%; transition: width 0.5s; }
-  .progress-rail .count { font-weight: 700; color: #fff; font-size: 16px; }
-
-  /* —— Result —— */
-  .result-slab {
-    padding: 40px;
+    width: 100%;
+    padding: 20px 28px;
+    background: linear-gradient(135deg, #0f1a24 0%, #13212e 100%);
+    border: 1px solid rgba(255,255,255,0.06);
     border-radius: 20px;
-    text-align: center;
-    display: none;
-    margin-bottom: 24px;
-    position: relative;
-    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: left;
+    font-family: inherit;
+    color: #fff;
   }
-  .result-slab.visible { display: block; animation: slabIn 0.5s ease; }
-  @keyframes slabIn { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
-  .result-slab.r-high { background: linear-gradient(135deg, #13293d 0%, #1a3550 100%); border: 1px solid rgba(255,255,255,0.06); }
-  .result-slab.r-mid { background: #111b26; border: 1px solid rgba(255,255,255,0.06); }
-  .result-slab.r-low { background: #111b26; border: 1px solid rgba(255,255,255,0.04); }
-  .result-slab .r-score {
-    font-size: 64px; font-weight: 800; line-height: 1;
-    margin-bottom: 4px;
-    background: linear-gradient(135deg, #c20020, #ff3a3a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .result-slab.r-high .r-score { -webkit-text-fill-color: initial; color: #fff; background: none; }
-  .result-slab .r-label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 16px; }
-  .result-slab .r-msg { font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.5; margin-bottom: 24px; }
-  .result-slab .r-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-  .result-slab .r-btn {
-    font-size: 13px; font-weight: 600;
-    padding: 10px 24px; border-radius: 30px;
-    text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
-    transition: all 0.2s;
-  }
-  .result-slab .r-btn-p {
-    background: #c20020; color: #fff;
-  }
-  .result-slab .r-btn-p:hover { background: #a0001a; transform: translateY(-1px); }
-  .result-slab .r-btn-s {
-    border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.6);
-  }
-  .result-slab .r-btn-s:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.3); }
+  .case-toggle:hover { background: linear-gradient(135deg, #13212e 0%, #162836 100%); border-color: rgba(255,255,255,0.1); }
+  .case-toggle.open { border-radius: 20px 20px 0 0; border-bottom: none; }
 
-  /* Conclusion */
-  .conclusion-block {
+  .case-toggle-badge {
+    flex-shrink: 0;
+    font-size: 9px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    background: rgba(194,0,32,0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .case-toggle-thesis {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: rgba(255,255,255,0.7);
+  }
+  .case-toggle-icon {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    font-size: 16px;
+    color: rgba(255,255,255,0.3);
+    transition: all 0.3s;
+  }
+  .case-toggle:hover .case-toggle-icon { background: rgba(194,0,32,0.1); color: #c20020; }
+  .case-toggle.open .case-toggle-icon { transform: rotate(90deg); background: rgba(194,0,32,0.1); color: #c20020; }
+
+  .case-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background: linear-gradient(135deg, #0f1a24 0%, #13212e 100%);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-top: none;
+    border-radius: 0 0 20px 20px;
+  }
+  .case-body.open { max-height: 2000px; }
+
+  .case-body-inner { padding: 0 28px 28px; }
+
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    gap: 32px;
+  }
+
+  .case-left { min-width: 0; }
+
+  .case-subtitle {
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+    margin-bottom: 12px;
+    text-wrap: pretty;
+  }
+  .case-context {
+    margin: 12px 0 16px;
+    padding: 12px 18px;
+    background: rgba(255,255,255,0.02);
+    border-left: 2px solid rgba(194,0,32,0.25);
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    font-style: italic;
+    line-height: 1.6;
+    text-wrap: pretty;
+  }
+  .case-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.04);
+    margin: 16px 0;
+  }
+  .case-stage-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .case-stage-label.before { color: rgba(255,255,255,0.2); }
+  .case-stage-label.after { color: #c20020; }
+  .case-stage-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.5);
+    text-wrap: pretty;
+    margin-bottom: 14px;
+  }
+  .case-company {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+    font-style: italic;
+  }
+
+  .case-right {
+    position: relative;
+  }
+  .case-right-inner {
+    position: sticky;
+    top: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 160px;
+  }
+  .case-thesis {
+    font-size: clamp(20px, 2vw, 28px);
+    font-weight: 800;
+    color: #c20020;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    text-align: center;
+  }
+  .case-close-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: none;
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.2);
+    text-align: center;
+    transition: color 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .case-close-btn:hover { color: rgba(255,255,255,0.4); }
+
+  /* ── Comparison ── */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 28px 0;
+  }
+  .comp-col {
+    padding: 24px 28px;
+    border-radius: 16px;
+  }
+  .comp-col.good {
+    background: rgba(0,180,100,0.04);
+    border: 1px solid rgba(0,180,100,0.1);
+  }
+  .comp-col.bad {
+    background: rgba(194,0,32,0.04);
+    border: 1px solid rgba(194,0,32,0.08);
+  }
+  .comp-col-title {
+    font-size: 13px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .comp-col.good .comp-col-title { color: rgba(0,200,110,0.6); }
+  .comp-col.bad .comp-col-title { color: rgba(194,0,32,0.5); }
+  .comp-col ul {
+    list-style: none; padding: 0;
+  }
+  .comp-col ul li {
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 5px 0 5px 20px;
+    position: relative;
+    color: rgba(255,255,255,0.5);
+  }
+  .comp-col.good ul li::before {
+    content: '✓';
+    position: absolute; left: 0;
+    color: rgba(0,200,110,0.5);
+  }
+  .comp-col.bad ul li::before {
+    content: '✗';
+    position: absolute; left: 0;
+    color: rgba(194,0,32,0.4);
+  }
+
+  .cta-section {
     background: #111b26;
     border: 1px solid rgba(255,255,255,0.04);
     border-radius: 20px;
     padding: 48px;
+    margin-top: 32px;
   }
-  .conclusion-block h2 { font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 20px; }
-  .conclusion-block p { color: rgba(255,255,255,0.6); margin-bottom: 14px; }
-  .conclusion-block a { color: #c20020; text-decoration: none; border-bottom: 1px solid rgba(194,0,32,0.3); }
-  .conclusion-block a:hover { border-bottom-color: #c20020; }
+  .cta-section h2 {
+    font-size: 26px; font-weight: 700; color: #fff;
+    margin-bottom: 20px;
+  }
+  .cta-section p { color: rgba(255,255,255,0.6); margin-bottom: 14px; }
+  .cta-section a { color: #c20020; text-decoration: none; border-bottom: 1px solid rgba(194,0,32,0.3); }
+  .cta-section a:hover { border-bottom-color: #c20020; }
 
   .cta-stack { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
   .cta-stack a {
@@ -306,18 +402,28 @@
   .cta-stack a .arr { font-size: 18px; transition: transform 0.3s; }
   .cta-stack a:hover .arr { transform: translateX(4px); }
 
-  /* Footer */
-  .footer { background: #0a0f18; color: rgba(255,255,255,0.2); padding: 20px 0; font-size: 12px; text-align: center; border-top: 1px solid rgba(255,255,255,0.03); }
+  .footer {
+    background: #0a0f18;
+    color: rgba(255,255,255,0.2);
+    padding: 20px 0;
+    font-size: 12px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.03);
+  }
   .footer a { color: rgba(255,255,255,0.3); text-decoration: none; }
   .footer a:hover { color: #fff; }
 
-  @media (max-width: 640px) {
+  @media (max-width: 700px) {
     .sec { padding: 56px 0; }
-    .q-card { padding: 28px 24px; }
-    .conclusion-block { padding: 28px 24px; }
-    .result-slab { padding: 24px 20px; }
-    .result-slab .r-score { font-size: 44px; }
-    .progress-rail { flex-wrap: wrap; }
+    .case-toggle { padding: 16px 20px; gap: 12px; }
+    .case-toggle-thesis { font-size: 14px; }
+    .case-body-inner { padding: 0 20px 20px; }
+    .case-grid { grid-template-columns: 1fr; gap: 20px; }
+    .case-right-inner { min-height: auto; padding: 16px 0 8px; }
+    .case-thesis { font-size: 22px; }
+    .comparison-grid { grid-template-columns: 1fr; }
+    .cta-section { padding: 28px 24px; }
+    .ask-block { padding: 20px; }
   }
 </style>
 </head>
@@ -325,161 +431,389 @@
 
 <div id="progressBar"></div>
 
-<!-- Hero -->
 <section class="hero">
   <div class="hero-mesh"></div>
   <div class="hero-lines"></div>
   <div class="hero-content">
     <div class="hero-label">XSUD</div>
-    <h1><span>Шесть качеств</span> руководителя,<br>который вытащит проект<br>автоматизации</h1>
-    <p>Не каждая компания готова к автоматизации. Но есть руководители, у которых она получается почти всегда — вне зависимости от бюджета, размера отдела и числа скептиков в команде. Проверьте, есть ли у вас то, что нужно.</p>
+    <h1>Как провести переговоры <br><span>с поставщиком ПО:</span> схема для юристов</h1>
+    <p>Чек-лист для руководителей юридических департаментов, которые выбирают систему автоматизации для своего отдела.</p>
   </div>
   <div class="hero-arrow">↓</div>
 </section>
 
-<!-- Intro -->
-<section class="sec intro">
+<section class="sec" style="background: #0f1620;">
   <div class="container">
-    <p><strong>Каждый год десятки юридических отделов начинают разговор об автоматизации.</strong> Смотрят системы, ходят на демо, читают кейсы — и ничего не происходит. Не потому что нет денег. Не потому что нет подходящего инструмента. А потому что нет нужного человека в нужной роли.</p>
-    <p>Автоматизация юридической функции — это не IT-проект. Это управленческий проект с IT-инструментом внутри. А значит, его судьба определяется не техническими характеристиками системы, а качествами руководителя, который берется за него.</p>
-    <p>Исследования подтверждают: компании, где лидерство активно поддерживает цифровую трансформацию, в 1,5 раза чаще достигают устойчивого роста. Разница — не в бюджете. Разница — в человеке, который ведет изменения.<br>Цифровая трансформация стала обязательным элементом для компаний, которые хотят сохранять устойчивость и лидерство. Вопрос "нужна ли нам автоматизация" постепенно заменяется вопросом "есть ли у нас руководители, способные ее провести?".</p>
-    <p>Ниже — 6 качеств руководителей, у которых автоматизация получается. Прочитайте и честно ответьте себе: про вас это или нет.</p>
+    <p class="body-text" style="font-size:18px;">
+      <strong>Опытный юрист никогда не входит в зал суда «послушать, что скажут».</strong>
+      Он готовит позицию, формулирует вопросы к свидетелям, держит в голове, где у другой стороны слабые места — и именно поэтому выигрывает.
+    </p>
+    <p class="body-text" style="font-size:18px;">
+      Представьте, что переговоры с вендором — это ваше заседание.
+      Ваша задача — подготовить линию, задать правильные вопросы и увидеть, где показания расходятся с реальностью.
+    </p>
   </div>
 </section>
 
-<!-- Qualities -->
+<!-- 1 -->
 <section class="sec" style="background:#0a0f18;">
   <div class="container">
 
-    <!-- 1 -->
-    <div class="q-card">
-      <div class="q-card-num-bg">1</div>
-      <div class="q-card-header"><div class="q-card-dot"></div><h3>Любопытство</h3></div>
-      <p>Руководитель с развитым любопытством не боится данных. Он хочет их видеть — даже если они покажут неудобную правду о том, сколько времени уходит на рутину, где теряются сроки и какие дела ведутся «на память».</p>
-      <div class="research-chip">Российские исследования по цифровой трансформации показывают: ключевой барьер — не отсутствие технологий, а готовность управленческих команд менять процессы и работать с данными. В <a href="https://www.skolkovo.ru/expert-opinions/tehnologii-i-liderstvo-kak-cifrovaya-transformaciya-menyaet-roli-top-menedzherov/" target="_blank">обзоре "Сколково"</a> отдельно подчеркивается, что роль топ-менеджера смещается от операционного контроля к роли проводника изменений и архитектора цифровой стратегии.</div>
-      <p>В контексте автоматизации это выглядит так: любопытный руководитель задает вопросы до старта — «как именно сейчас работает мой юротдел?», «где мы теряем время и деньги?», «что мы не видим, потому что все в почте?» — и использует эти ответы как фундамент для внедрения, а не как повод отложить решение.</p>
-      <div class="diag-box" id="d1">
-        <div class="diag-q">Как часто вы смотрите на процессы своего отдела глазами стороннего наблюдателя — с интересом, а не тревогой?</div>
-        <div class="diag-opts">
-          <label class="diag-opt" onclick="sel(this,'d1',1)"><input type="radio" name="q1"><div class="diag-rd"></div><div class="diag-lbl">Регулярно изучаю процессы — это дает пищу для решений</div><div class="diag-bdg">Да</div></label>
-          <label class="diag-opt" onclick="sel(this,'d1',0.5)"><input type="radio" name="q1"><div class="diag-rd"></div><div class="diag-lbl">Иногда задумываюсь, но без системы</div><div class="diag-bdg">Частично</div></label>
-          <label class="diag-opt" onclick="sel(this,'d1',0)"><input type="radio" name="q1"><div class="diag-rd"></div><div class="diag-lbl">Обычно смотрю только когда уже «горит»</div><div class="diag-bdg">Пока нет</div></label>
+    <div class="section-title">
+      <div class="num">1</div>
+      Допрос по существу: не станет ли система еще одним реестром
+    </div>
+
+    <p class="body-text">
+      Главный страх любого руководителя, который уже пробовал цифровизацию: потратить деньги, потратить время команды — и в итоге получить красивый интерфейс вместо настоящего Excel.
+      Это случается, когда система не снимает ручной труд, а только перекрашивает его.
+    </p>
+
+    <div class="ask-block">
+      <div class="ask-block-title">Спросите у вендора</div>
+      <ul>
+        <li>«Покажите, как живет один кейс от претензии до исполнительного производства — не в презентации, а на реальных карточках. Как в вашей системе связаны претензия, иск, апелляция и ИП в единую историю по должнику?»</li>
+        <li>«Что у вас подтягивается автоматически с сайтов судов и ФССП, а что юристы вносят руками? Можно посмотреть живой пример?»</li>
+        <li>«Когда юрист создает исковое заявление — сколько раз ему нужно скопировать данные из одного места в другое?»</li>
+      </ul>
+    </div>
+
+    <div class="warn-block">
+      <strong>Насторожитесь, если:</strong>
+      <span>вендор показывает только красивые слайды и уходит от конкретных сценариев. Или если на вопрос «что вносится вручную» дает размытый ответ в духе «ну, первоначальное заполнение, все как обычно».</span>
+    </div>
+
+    <div class="case-card" id="case1">
+      <button class="case-toggle" onclick="toggleCase(this)">
+        <span class="case-toggle-badge">Кейс XSUD</span>
+        <span class="case-toggle-thesis">4× быстрее сбор информации по делам</span>
+        <span class="case-toggle-icon">→</span>
+      </button>
+      <div class="case-body">
+        <div class="case-body-inner">
+          <div class="case-grid">
+            <div class="case-left">
+              <div class="case-subtitle">От хаотичных таблиц — к управляемой нагрузке юристов</div>
+              <div class="case-context">Юристы выгорали на рутине, а руководство не видело реальной картины по делам.</div>
+              <div class="case-divider"></div>
+              <div class="case-stage-label before">Как чувствовала себя команда до изменений</div>
+              <div class="case-stage-text">Юрист тратил до 4 часов только на сбор информации для подготовки одной претензии: найти договор, изучить, подготовить документ, согласовать, отправить. Информация в таблице актуализировалась с задержкой в несколько дней, руководство не видело реальной загрузки и не могло оперативно распределять задачи.</div>
+              <div class="case-stage-label after">Как работает процесс сейчас</div>
+              <div class="case-stage-text">Время на сбор и обработку информации по делам сократилось в 4 раза. Процесс подготовки отчетов стал полностью автоматизированным.</div>
+              <div class="case-company">Зарубежнефть, юридический департамент, внедрение XSUD в 2025 году.</div>
+            </div>
+            <div class="case-right">
+              <div class="case-right-inner">
+                <div class="case-thesis">4× быстрее<br>сбор информации<br>по делам</div>
+              </div>
+            </div>
+          </div>
         </div>
+        <button class="case-close-btn" onclick="toggleCase(this.parentElement.previousElementSibling)">Свернуть кейс ↑</button>
       </div>
     </div>
 
-    <!-- 2 -->
-    <div class="q-card">
-      <div class="q-card-num-bg">2</div>
-      <div class="q-card-header"><div class="q-card-dot"></div><h3>Насмотренность</h3></div>
-      <p>Насмотренность — это управленческий опыт, накопленный через наблюдение. Руководитель, который видел разные подходы к организации юридической работы, не изобретает велосипед: он знает, как выглядит «хорошо» и понимает расстояние между своим текущим состоянием и ним.</p>
-      <div class="research-chip"><a href="https://talentsy.ru/blog/test-bolshaya-pyaterka/" target="_blank">Российские работы</a> по модели "Большой пятерки" напрямую связывают открытость опыту и добросовестность с управленческой успешностью. Популярные объяснения этой модели называют людей с высокими показателями добросовестности "почти идеальными сотрудниками": они надежны, дисциплинированны и доводят дела до конца — именно такими, каким доверяют сложные проекты.</div>
-      <p>Насмотренный руководитель видит в системе учета дел не «еще одну программу», а привычный инструмент зрелого отдела. Он понимает, как выглядит работа, когда у каждого юриста есть единое рабочее пространство: задачи, дела, документы, контроль сроков — в одном месте, без звонков «а где то письмо из суда?».</p>
-      <div class="diag-box" id="d2">
-        <div class="diag-q">Можете ли вы прямо сейчас назвать 2–3 конкретных метрики эффективности вашего отдела?</div>
-        <div class="diag-opts">
-          <label class="diag-opt" onclick="sel(this,'d2',1)"><input type="radio" name="q2"><div class="diag-rd"></div><div class="diag-lbl">Да, регулярно отслеживаю 3+ метрики</div><div class="diag-bdg">Да</div></label>
-          <label class="diag-opt" onclick="sel(this,'d2',0.5)"><input type="radio" name="q2"><div class="diag-rd"></div><div class="diag-lbl">Приблизительно представляю, но точных цифр нет</div><div class="diag-bdg">Частично</div></label>
-          <label class="diag-opt" onclick="sel(this,'d2',0)"><input type="radio" name="q2"><div class="diag-rd"></div><div class="diag-lbl">Метрики пока не собираются системно</div><div class="diag-bdg">Пока нет</div></label>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="sec" style="background:#0f1620;">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="num">2</div>
+      Проверка показаний: кто реально будет обеспечивать внедрение
+    </div>
+
+    <p class="body-text">
+      Чтобы автоматизация не закончилась словами «нам продали, дали доступ, дальше мы были сами», нужно заранее узнать:
+    </p>
+
+    <ul style="list-style:none;padding:0 0 12px;color:rgba(255,255,255,0.65);margin-bottom:12px;">
+      <li style="padding:4px 0 4px 24px;position:relative;font-size:15px;">— кто обеспечит настройку;</li>
+      <li style="padding:4px 0 4px 24px;position:relative;font-size:15px;">— как обучить команду;</li>
+      <li style="padding:4px 0 4px 24px;position:relative;font-size:15px;">— какие процессы описать под программу.</li>
+    </ul>
+
+    <p class="body-text">Задайте на демо правильные вопросы, чтобы не откатиться к Excel через пару месяцев.</p>
+
+    <div class="ask-block">
+      <div class="ask-block-title">Спросите у вендора</div>
+      <ul>
+        <li>«Кто именно будет вести наше внедрение? Можно познакомиться с этим человеком уже сейчас?»</li>
+        <li>«Вы помогаете описывать наши процессы и настраивать систему под них — или даете доступ и инструкцию?»</li>
+        <li>«Как организовано обучение? Что происходит, когда к нам приходит новый сотрудник через год после внедрения — это входит в сопровождение или оплачивается отдельно?»</li>
+        <li>«Есть ли у вас примерный план внедрения для юрдепа — с этапами, сроками, зонами ответственности?»</li>
+      </ul>
+    </div>
+
+    <div class="warn-block">
+      <strong>Насторожитесь, если:</strong>
+      <span>вам говорят «система интуитивно понятная, разберетесь сами», не могут назвать конкретного аналитика или менеджера по вашему проекту, обучение описывается как «один вебинар в начале».</span>
+    </div>
+
+    <div class="case-card" id="case2">
+      <button class="case-toggle" onclick="toggleCase(this)">
+        <span class="case-toggle-badge">Кейс XSUD</span>
+        <span class="case-toggle-thesis">24/7 — такой мониторинг сроков организовали в Агентстве</span>
+        <span class="case-toggle-icon">→</span>
+      </button>
+      <div class="case-body">
+        <div class="case-body-inner">
+          <div class="case-grid">
+            <div class="case-left">
+              <div class="case-subtitle">Система, которая подстраивается под ваши процессы, а не наоборот</div>
+              <div class="case-context">Агентству было принципиально важно, чтобы система учитывала сроки по каждой судебной инстанции — раньше часть контроля приходилось держать «на памяти» юристов.</div>
+              <div class="case-divider"></div>
+              <div class="case-stage-label before">Как чувствовала себя команда до изменений</div>
+              <div class="case-stage-text">Юристы контролировали сроки обжалования вручную, для каждой инстанции приходилось отдельно отслеживать дату решения и считать дедлайны. Риск человеческой ошибки был высоким: несколько параллельных дел, разные инстанции и регламенты усложняли планирование работы.</div>
+              <div class="case-stage-label after">Как работает процесс сейчас</div>
+              <div class="case-stage-text">XSUD настроили так, что робот сам определяет, в какой инстанции находится дело и когда вынесено решение, и автоматически проставляет сроки обжалования в календарь. Особенности процессов и требований агентства учли еще до запуска системы, поэтому после старта не потребовалось донастройки «по ходу».</div>
+              <div class="case-company">Федеральное агентство водных ресурсов, внедрение XSUD в 2025 году</div>
+            </div>
+            <div class="case-right">
+              <div class="case-right-inner">
+                <div class="case-thesis">24/7<br>мониторинг<br>сроков</div>
+              </div>
+            </div>
+          </div>
         </div>
+        <button class="case-close-btn" onclick="toggleCase(this.parentElement.previousElementSibling)">Свернуть кейс ↑</button>
       </div>
     </div>
 
-    <!-- 3 -->
-    <div class="q-card">
-      <div class="q-card-num-bg">3</div>
-      <div class="q-card-header"><div class="q-card-dot"></div><h3>Здоровый азарт</h3></div>
-      <p>Проекты изменений не любят равнодушных. Они требуют человека, который воспринимает сложность как задачу, а не как угрозу — и получает от этого энергию, а не стресс.</p>
-      <p>Здоровый азарт — это ориентация на достижение результата, подкрепленная уверенностью в собственных силах. Такие руководители не ждут идеального момента для старта: они выбирают момент «достаточно хороший» и начинают двигаться.</p>
-      <p>В проекте автоматизации азарт проявляется на критически важных этапах: при защите бюджета перед CFO, при первых признаках сопротивления команды, при первых технических затыках. Это не агрессия и не авантюризм — это устойчивость в движении к цели, когда другие уже останавливаются.</p>
-      <p>Практика показывает: первое сопротивление юристов — «зачем, и так нормально было» — проходит в течение первого месяца работы в системе. Руководителю нужно просто не остановиться до этого момента.</p>
-      <div class="diag-box" id="d3">
-        <div class="diag-q">Если завтра CFO скажет «а зачем нам это?» — у вас есть готовый ответ с цифрами и аргументами?</div>
-        <div class="diag-opts">
-          <label class="diag-opt" onclick="sel(this,'d3',1)"><input type="radio" name="q3"><div class="diag-rd"></div><div class="diag-lbl">Да, обоснование уже готово с цифрами</div><div class="diag-bdg">Да</div></label>
-          <label class="diag-opt" onclick="sel(this,'d3',0.5)"><input type="radio" name="q3"><div class="diag-rd"></div><div class="diag-lbl">Аргументы есть — цифры предстоит собрать</div><div class="diag-bdg">Частично</div></label>
-          <label class="diag-opt" onclick="sel(this,'d3',0)"><input type="radio" name="q3"><div class="diag-rd"></div><div class="diag-lbl">Над аргументацией еще нужно работать</div><div class="diag-bdg">Пока нет</div></label>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="sec" style="background:#0a0f18;">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="num">3</div>
+      Работа со своими свидетелями: что будет с командой
+    </div>
+
+    <p class="body-text">
+      Даже хорошая система проваливается, если команда ее саботирует. «Нам не объяснили», «там неудобно», «проще в Excel» — это не просто отговорки, это сигнал, что вендор не думал о пользователях, а только о продаже лицензий.
+    </p>
+
+    <div class="ask-block">
+      <div class="ask-block-title">Спросите у вендора</div>
+      <ul>
+        <li>«Есть ли у вас демо-стенд, на котором наши юристы смогут попробовать систему до принятия решения?»</li>
+        <li>«Бывало ли у ваших клиентов сопротивление команды при внедрении? Как вы с этим работали?»</li>
+        <li>«Насколько можно настроить интерфейс под наш текущий регламент — поля, виды карточек, представления? Или процессы нужно подгонять под систему?»</li>
+        <li>«Если через полгода мы захотим изменить логику одного из этапов — сможем сделать это сами или нужны разработчики?»</li>
+      </ul>
+    </div>
+
+    <div class="warn-block">
+      <strong>Насторожитесь, если:</strong>
+      <span>вендор говорит «у нас все стандартизировано, так лучше», не может показать примеров адаптации под специфику бизнеса, не имеет истории работы с сопротивлением команды.</span>
+    </div>
+
+    <div class="case-card" id="case3">
+      <button class="case-toggle" onclick="toggleCase(this)">
+        <span class="case-toggle-badge">Кейс XSUD</span>
+        <span class="case-toggle-thesis">1000 дел на 7 юристов — без срывов сроков и выгораний</span>
+        <span class="case-toggle-icon">→</span>
+      </button>
+      <div class="case-body">
+        <div class="case-body-inner">
+          <div class="case-grid">
+            <div class="case-left">
+              <div class="case-subtitle">От ручного учета к бесшовному внедрению решения, которое адаптировали под команду</div>
+              <div class="case-context">Высокая нагрузка на небольшой юротдел Рольфа требовал особого подхода — сотрудники нуждались в системе, которая реально снизит нагрузку, а не добавит новой рутины.</div>
+              <div class="case-divider"></div>
+              <div class="case-stage-label before">Как чувствовала себя команда до изменений</div>
+              <div class="case-stage-text">Команда опасалась, что новая система усложнит работу и не учтет реальную практику ведения дел. Юристы уже работали на высокой нагрузке, поэтому не были готовы к дополнительным экспериментам и «сырым» инструментам.</div>
+              <div class="case-stage-label after">Как работает процесс сейчас</div>
+              <div class="case-stage-text">XSUD взял на себя подготовку технического задания: аналитики провели рабочие встречи с юристами, финансистами и техническими специалистами и подробно описали процессы и сложности. На основе этой работы были разработаны карточки дел, которые отражают реальную логику работы — поэтому систему быстро приняли и начали использовать в ежедневной практике.</div>
+              <div class="case-company">Рольф, юридический департамент, внедрение XSUD в 2025 году</div>
+            </div>
+            <div class="case-right">
+              <div class="case-right-inner">
+                <div class="case-thesis">1000 дел<br>на 7 юристов<br>без срывов</div>
+              </div>
+            </div>
+          </div>
         </div>
+        <button class="case-close-btn" onclick="toggleCase(this.parentElement.previousElementSibling)">Свернуть кейс ↑</button>
       </div>
     </div>
 
-    <!-- 4 -->
-    <div class="q-card">
-      <div class="q-card-num-bg">4</div>
-      <div class="q-card-header"><div class="q-card-dot"></div><h3>Умение делегировать</h3></div>
-      <p>Один из главных провалов в проектах автоматизации выглядит так: руководитель берется за все сам, превращается в «внедренца на полставки» и через три месяца выгорает, не доведя до конца.</p>
-      <p>Умение делегировать — это не про то, чтобы «раздать задачи». Это про то, чтобы сформировать команду с четким распределением ролей, передать ответственность за исполнение и самому остаться на уровне принятия ключевых решений и снятия блокеров.</p>
-      <div class="research-chip"><a href="https://secrets.tbank.ru/trendy/chto-vliyaet-na-vovlechennost-sotrudnikov/" target="_blank">Исследование Т-банка</a> о вовлеченности показывает, что далеко не каждый российский работодатель готов делегировать полномочия и давать команде свободу в принятии решений. На фоне этого руководитель, который умеет собирать вокруг проекта команду и делиться ответственностью, уже выделяется на рынке.</div>
-      <p>В проекте автоматизации делегирование выглядит так: назначить владельца процесса внедрения, распределить участие юристов в настройке под свои задачи, поручить формирование новых регламентов тем, кто будет работать в системе ежедневно.</p>
-      <div class="diag-box" id="d4">
-        <div class="diag-q">Есть ли у вас прямо сейчас человек в команде, которому вы готовы доверить роль «внутреннего чемпиона» проекта XSUD?</div>
-        <div class="diag-opts">
-          <label class="diag-opt" onclick="sel(this,'d4',1)"><input type="radio" name="q4"><div class="diag-rd"></div><div class="diag-lbl">Да, вижу подходящего человека</div><div class="diag-bdg">Да</div></label>
-          <label class="diag-opt" onclick="sel(this,'d4',0.5)"><input type="radio" name="q4"><div class="diag-rd"></div><div class="diag-lbl">Можно назначить — но потребуется разгрузить</div><div class="diag-bdg">Частично</div></label>
-          <label class="diag-opt" onclick="sel(this,'d4',0)"><input type="radio" name="q4"><div class="diag-rd"></div><div class="diag-lbl">Придется брать ключевую роль на себя</div><div class="diag-bdg">Пока нет</div></label>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="sec" style="background:#0f1620;">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="num">4</div>
+      Допустимость доказательств: безопасность и контур
+    </div>
+
+    <p class="body-text">
+      Это блок, который нередко убивает проект уже после того, как вы договорились с вендором:
+      ИТ или ИБ разворачивают решение на согласовании, потому что оно не соответствует требованиям. Учтите их требования и задайте все вопросы на этапе переговоров.
+    </p>
+
+    <div class="ask-block">
+      <div class="ask-block-title">Спросите у вендора</div>
+      <ul>
+        <li>«Какие варианты размещения вы реально поддерживаете: облако, on-premises, закрытый контур? Есть ли действующие клиенты с каждым из форматов?»</li>
+        <li>«Как устроена ролевая модель: что увидит рядовой юрист, руководитель, внешний консультант? Как настраиваются ограничения?»</li>
+        <li>«Есть ли у вас аудит действий — кто, что и когда изменил? Как вернуть предыдущее состояние карточки?»</li>
+        <li>«Вы включены в реестр отечественного ПО? Есть ли сертификация ФСТЭК?»</li>
+      </ul>
+    </div>
+
+    <div class="warn-block">
+      <strong>Насторожитесь, если:</strong>
+      <span>вариант on-premises существует «в теории», реальных кейсов нет; ролевая модель описывается в общих словах без возможности показать настройки живьем; про аудит действий вас переводят на другую тему.</span>
+    </div>
+
+    <div class="case-card" id="case4">
+      <button class="case-toggle" onclick="toggleCase(this)">
+        <span class="case-toggle-badge">Кейс XSUD</span>
+        <span class="case-toggle-thesis">Облако и on-premises, реестр ПО, поддержка ФСТЭК</span>
+        <span class="case-toggle-icon">→</span>
+      </button>
+      <div class="case-body">
+        <div class="case-body-inner">
+          <div class="case-grid">
+            <div class="case-left">
+              <div class="case-subtitle">Готовность к требованиям ФСТЭК и реестра ПО — уже в продукте</div>
+              <div class="case-context">Юридическим департаментам и госклиентам нужна система, которая реально проходит по требованиям российского рынка и регуляторов.</div>
+              <div class="case-divider"></div>
+              <div class="case-stage-text">XSUD доступен и в облачном, и в серверном — on-premises варианте и уже включен в государственный реестр отечественного ПО. Система поддерживает установку на сертифицированное ФСТЭК России программное обеспечение — это не планы, а реализованные форматы работы с действующими клиентами.</div>
+              <div class="case-company">XSUD, юридическая система российского производства</div>
+            </div>
+            <div class="case-right">
+              <div class="case-right-inner">
+                <div class="case-thesis">Облако<br>и on‑premises<br>ФСТЭК</div>
+              </div>
+            </div>
+          </div>
         </div>
+        <button class="case-close-btn" onclick="toggleCase(this.parentElement.previousElementSibling)">Свернуть кейс ↑</button>
       </div>
     </div>
 
-    <!-- 5 -->
-    <div class="q-card">
-      <div class="q-card-num-bg">5</div>
-      <div class="q-card-header"><div class="q-card-dot"></div><h3>Желание преуспеть</h3></div>
-      <p>Качество, которое отличает тех, кто внедряет автоматизацию ради отчета «мы тоже попробовали», от тех, кто внедряет ее ради реального результата. Желание преуспеть — это готовность брать на себя ответственность за измеримый исход с результатом: «наш отдел стал работать быстрее, прозрачнее и без потерь по срокам». Это руководитель, который через полгода после внедрения приходит к топ-менеджменту не с ощущениями, а с цифрами.</p>
-      <p>Такая мотивация особенно важна именно в юридической функции — потому что ее ценность исторически сложно оцифровать. Руководитель с желанием преуспеть воспринимает систему учета дел не как инструмент контроля, а как способ сделать вклад отдела видимым: скорость обработки претензий, процент дел с соблюденными сроками, динамика по исполнительным производствам.</p>
-      <div class="diag-box" id="d5">
-        <div class="diag-q">Если бы завтра вы могли показать совету директоров один слайд об эффективности вашего юротдела — какая цифра на нем была бы? Она у вас есть?</div>
-        <div class="diag-opts">
-          <label class="diag-opt" onclick="sel(this,'d5',1)"><input type="radio" name="q5"><div class="diag-rd"></div><div class="diag-lbl">Работаем с цифрами — могу показать динамику</div><div class="diag-bdg">Да</div></label>
-          <label class="diag-opt" onclick="sel(this,'d5',0.5)"><input type="radio" name="q5"><div class="diag-rd"></div><div class="diag-lbl">Есть понимание, какую цифру хочу получить</div><div class="diag-bdg">Частично</div></label>
-          <label class="diag-opt" onclick="sel(this,'d5',0)"><input type="radio" name="q5"><div class="diag-rd"></div><div class="diag-lbl">Пока работаем «на ощущениях»</div><div class="diag-bdg">Пока нет</div></label>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="sec" style="background:#0a0f18;">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="num">5</div>
+      Последствия решения: как выйти без потерь
+    </div>
+
+    <p class="body-text">
+      Самый неудобный блок вопросов — о дальнейшей судьбе проекта при уходе от вендора. Часто его никто не задает на переговорах. Но позже оказывается, что данные «так просто не выгрузишь», экспорт платный или возможен только в неудобном формате, а стоимость владения при росте команды выросла вдвое.
+      Задайте эти вопросы сейчас, пока у вас еще есть выбор.
+    </p>
+
+    <div class="ask-block">
+      <div class="ask-block-title">Спросите у вендора</div>
+      <ul>
+        <li>«Если через три года мы решим перейти на другое решение — как мы заберем свои данные? В каком формате вы их отдаете? Есть ли ограничения по объему или дополнительная стоимость?»</li>
+        <li>«Как меняется стоимость, если наш юрдеп вырастет с 10 до 30 человек, или если мы подключим филиалы?»</li>
+        <li>«Если мне нужен нестандартный отчет или выгрузка — кто и на каких условиях мне поможет?»</li>
+        <li>«Как часто меняются тарифы? Были ли за последние три года существенные изменения стоимости для действующих клиентов?»</li>
+      </ul>
+    </div>
+
+    <div class="warn-block">
+      <strong>Насторожитесь, если:</strong>
+      <span>на вопрос про выход вендор уходит в сторону — «зачем думать об этом сейчас?», экспорт данных описан размыто, стоимость масштабирования не называют даже приблизительно.</span>
+    </div>
+
+    <div class="case-card" id="case5">
+      <button class="case-toggle" onclick="toggleCase(this)">
+        <span class="case-toggle-badge">Кейс XSUD</span>
+        <span class="case-toggle-thesis">10000+ дел — без задержек и ошибок при выгрузке в SAP</span>
+        <span class="case-toggle-icon">→</span>
+      </button>
+      <div class="case-body">
+        <div class="case-body-inner">
+          <div class="case-grid">
+            <div class="case-left">
+              <div class="case-subtitle">Интеграция XSUD и SAP без дополнительной ручной работы юристов</div>
+              <div class="case-context">Юристы АльфаСтрахование-Жизнь заранее спросили, как XSUD будет работать с их текущими системами и потоками данных.</div>
+              <div class="case-divider"></div>
+              <div class="case-stage-label before">Как чувствовала себя команда до изменений</div>
+              <div class="case-stage-text">Компания вела десятки тысяч исковых дел, а результаты приходилось вручную переносить из Excel в SAP — это занимало 2–3 дня и приводило к систематическим ошибкам. Был риск, что новая система добавит еще один «разрозненный» инструмент и усложнит работу, если интеграция останется на уровне обещаний.</div>
+              <div class="case-stage-label after">Как работает процесс сейчас</div>
+              <div class="case-stage-text">После внедрения XSUD данные между XSUD и SAP обмениваются автоматически: юристы ведут дела в одном окне, а результаты по завершении процесса не нужно переносить вручную. Именно потому, что вопрос «как это будет работать с нашими системами» проговорили до старта проекта, интеграция получилась рабочей и вписалась в экосистему клиента.</div>
+              <div class="case-company">АльфаСтрахование-Жизнь, интеграция XSUD и SAP в 2025 году</div>
+            </div>
+            <div class="case-right">
+              <div class="case-right-inner">
+                <div class="case-thesis">10 000+ дел<br>выгрузка в SAP<br>без ошибок</div>
+              </div>
+            </div>
+          </div>
         </div>
+        <button class="case-close-btn" onclick="toggleCase(this.parentElement.previousElementSibling)">Свернуть кейс ↑</button>
       </div>
     </div>
 
-    <!-- 6 -->
-    <div class="q-card">
-      <div class="q-card-num-bg">6</div>
-      <div class="q-card-header"><div class="q-card-dot"></div><h3>Сильные лидерские навыки</h3></div>
-      <p>Сильный лидер понимает, что автоматизация — это прежде всего изменение привычек людей, а не установка программы. Стиль, при котором руководитель объясняет «зачем», наделяет сотрудников полномочиями и поддерживает их инициативу — напрямую связан с более высокой мотивацией команды, снижением сопротивления изменениям и лучшими результатами трансформаций.</p>
-      <p>На практике это означает: сильный лидер не говорит команде «будем работать в новой системе», он говорит «я убираю у вас рутину, чтобы вы занимались тем, ради чего вы вообще пришли в профессию».</p>
-      <p>Разница в формулировке — принципиальная. Первая вызывает сопротивление. Вторая — любопытство и вовлеченность.</p>
-      <p>Именно такой руководитель может провести команду через первые недели адаптации к системе — когда wow-эффект еще не наступил, а старые привычки еще тянут назад.</p>
-      <div class="diag-box" id="d6">
-        <div class="diag-q">Вы готовы в первые 2–3 месяца внедрения быть «буфером» между командой и новым инструментом — слушать обратную связь, корректировать, не давить?</div>
-        <div class="diag-opts">
-          <label class="diag-opt" onclick="sel(this,'d6',1)"><input type="radio" name="q6"><div class="diag-rd"></div><div class="diag-lbl">Да, это моя роль как руководителя</div><div class="diag-bdg">Да</div></label>
-          <label class="diag-opt" onclick="sel(this,'d6',0.5)"><input type="radio" name="q6"><div class="diag-rd"></div><div class="diag-lbl">Скорее да, но есть опасения по времени</div><div class="diag-bdg">Частично</div></label>
-          <label class="diag-opt" onclick="sel(this,'d6',0)"><input type="radio" name="q6"><div class="diag-rd"></div><div class="diag-lbl">Сложно будет выделять столько времени</div><div class="diag-bdg">Пока нет</div></label>
-        </div>
+  </div>
+</section>
+
+<!-- Comparison -->
+<section class="sec" style="background:#0f1620;">
+  <div class="container">
+
+    <div class="section-title">
+      Что делать после <span style="text-decoration:line-through;color:rgba(255,255,255,0.2);">допроса</span> переговоров с вендором
+    </div>
+
+    <p class="body-text">После переговоров у вас будет картина по реальным ответам.</p>
+
+    <div class="comparison-grid">
+      <div class="comp-col good">
+        <div class="comp-col-title">Сильный вендор</div>
+        <ul>
+          <li>показывает живые кейсы, а не только логотипы клиентов</li>
+          <li>называет конкретного человека, который будет вести ваш проект</li>
+          <li>спокойно отвечает на вопрос про выход и экспорт данных</li>
+          <li>не уводит разговор от неудобных вопросов</li>
+        </ul>
+      </div>
+      <div class="comp-col bad">
+        <div class="comp-col-title">Слабый вендор</div>
+        <ul>
+          <li>уходит в абстракции при просьбе показать конкретный сценарий</li>
+          <li>не может сказать, что именно остается ручным трудом</li>
+          <li>обещает «настроите сами, это просто»</li>
+          <li>на вопрос про уход из системы говорит «зачем вам об этом думать?»</li>
+        </ul>
       </div>
     </div>
 
-    <!-- Progress -->
-    <div class="progress-rail">
-      <div class="label">Диагностика</div>
-      <div class="progress-track"><div class="fill" id="progressFill"></div></div>
-      <div class="count"><span id="scoreDisplay">0</span>/6</div>
-    </div>
+    <p class="body-text" style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.7);">
+      Разница между ними — это разница между проектом, который заработает, и деньгами, потраченными на еще один реестр.
+    </p>
 
-    <!-- Result -->
-    <div class="result-slab" id="resultSlab">
-      <div class="r-score"><span id="resScore">0</span>/6</div>
-      <div class="r-label">баллов</div>
-      <div class="r-msg" id="resMsg"></div>
-      <div class="r-actions" id="resActions"></div>
-    </div>
-
-    <!-- Conclusion -->
-    <div class="conclusion-block">
-      <h2>Как использовать ваши качества прямо сейчас</h2>
-      <p>Если вы узнали себя в этой статье — у вас уже есть самое главное. Не бюджет, не идеальный момент, не полная готовность команды, а управленческий ресурс. Именно он превращает проект автоматизации из «мы как-нибудь попробуем» в «мы это сделаем».</p>
-      <p>Инструмент, с которого можно начать — система учета дел <a href="https://xsudsoft.ru" target="_blank">XSUD</a>. Она создана именно для юридических отделов: единое пространство для дел, документов, задач, контроля сроков и аналитики для руководителя. Синхронизация с КАД Арбитр, ГАС Правосудие, ФССП, ФНС — чтобы данные обновлялись автоматически, а не через ручной мониторинг сайтов судов.</p>
-      <p>Следующий шаг — не покупка. Следующий шаг — посмотреть, как это выглядит на ваших делах и вашей команде.</p>
+    <div class="cta-section">
+      <h2>Проверьте XSUD на своих вопросах</h2>
+      <p>Хотите проверить, как XSUD ответит на эти вопросы? Запросите демо — покажем живые сценарии, назовем менеджера вашего проекта и ответим на все, включая вопрос про выход из системы.</p>
       <div class="cta-stack">
-        <a href="#"><span>Пройдите короткую диагностику готовности вашего отдела к автоматизации<span class="sub">За 5 минут вы получите персональные рекомендации по шагам внедрения</span></span><span class="arr">→</span></a>
-        <a href="https://xsudsoft.ru" target="_blank"><span>Запросите демонстрацию XSUD на примере вашего профиля задач<span class="sub">Посмотрите, как система работает на ваших делах</span></span><span class="arr">→</span></a>
-        <a href="#"><span>Получите шаблон обоснования проекта для топ-менеджмента<span class="sub">Подготовили шаблон с расчетом ROI и описанием рисков — для защиты бюджета перед CFO</span></span><span class="arr">→</span></a>
+        <a href="https://xsudsoft.ru" target="_blank">
+          <span>Запросить демонстрацию XSUD<span class="sub">Посмотрите, как система работает на ваших делах</span></span>
+          <span class="arr">→</span>
+        </a>
+        <a href="https://xsudsoft.ru/publikacii" target="_blank">
+          <span>Все публикации XSUD<span class="sub">Больше статей об автоматизации юридических отделов</span></span>
+          <span class="arr">→</span>
+        </a>
       </div>
     </div>
 
@@ -487,70 +821,50 @@
 </section>
 
 <footer class="footer">
-  <div class="container">© 2026 <a href="https://xsudsoft.ru" target="_blank">XSUD</a> — Система учета дел юриста · <a href="https://xsudsoft.ru/publikacii" target="_blank">Все публикации</a></div>
+  <div class="container">
+    © 2026 <a href="https://xsudsoft.ru" target="_blank">XSUD</a> — Система учета дел юриста ·
+    <a href="https://xsudsoft.ru/publikacii" target="_blank">Все публикации</a>
+  </div>
 </footer>
 
 <script>
-/* —— Scroll animations —— */
-(function() {
-  var els = document.querySelectorAll('.intro p, .q-card');
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) { e.target.classList.add('visible'); }
-    });
-  }, { threshold: 0.15 });
-  els.forEach(function(el) { observer.observe(el); });
-})();
+function toggleCase(btn) {
+  var card = btn.closest('.case-card');
+  var body = card.querySelector('.case-body');
+  var isOpen = body.classList.contains('open');
+  if (isOpen) {
+    body.classList.remove('open');
+    btn.classList.remove('open');
+    body.style.maxHeight = '0';
+  } else {
+    body.classList.add('open');
+    btn.classList.add('open');
+    var prev = body.style.maxHeight;
+    body.style.maxHeight = 'none';
+    var h = body.scrollHeight;
+    body.style.maxHeight = h + 'px';
+  }
+}
 
-/* —— Reading progress —— */
 window.addEventListener('scroll', function() {
   var h = document.documentElement;
   var p = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
   document.getElementById('progressBar').style.width = p + '%';
 });
 
-/* —— Diagnostic —— */
-var vals = {};
-function sel(el, g, v) {
-  var p = document.getElementById(g);
-  var opts = p.querySelectorAll('.diag-opt');
-  for (var i = 0; i < opts.length; i++) opts[i].classList.remove('selected');
-  el.classList.add('selected');
-  el.querySelector('input').checked = true;
-  vals[g] = v;
-  updateRes();
-}
-function updateRes() {
-  var t = 0, c = 0;
-  for (var k in vals) { if (vals[k] !== undefined) { t += vals[k]; c++; } }
-  var s = Math.round(t * 10) / 10;
-  document.getElementById('scoreDisplay').textContent = s;
-  document.getElementById('progressFill').style.width = (s / 6 * 100) + '%';
-  var box = document.getElementById('resultSlab');
-  if (c === 0) { box.classList.remove('visible'); return; }
-  box.classList.add('visible');
-  document.getElementById('resScore').textContent = s;
-  var msg = document.getElementById('resMsg');
-  var acts = document.getElementById('resActions');
-  box.className = 'result-slab visible';
-  if (s >= 5.5) {
-    box.classList.add('r-high');
-    msg.innerHTML = 'У вас есть <strong>все 6 качеств</strong> руководителя, который вытащит проект автоматизации. XSUD станет вашим инструментом. Переходите к действию.';
-    acts.innerHTML = '<a class="r-btn r-btn-p" href="https://xsudsoft.ru" target="_blank">Запросить демонстрацию XSUD →</a>';
-  } else if (s >= 3.5) {
-    box.classList.add('r-mid');
-    msg.innerHTML = '<strong>Сильный фундамент.</strong> Определите 1–2 зоны роста по вопросам, где ответили «частично», и усильте их до старта проекта.';
-    acts.innerHTML = '<a class="r-btn r-btn-s" href="#">Скачать шаблон обоснования →</a><a class="r-btn r-btn-p" href="https://xsudsoft.ru" target="_blank">Запросить демо →</a>';
-  } else if (s >= 1.5) {
-    box.classList.add('r-low');
-    msg.innerHTML = '<strong>Базовый уровень.</strong> Начните с малого: изучите шаблон обоснования и запросите демонстрацию XSUD.';
-    acts.innerHTML = '<a class="r-btn r-btn-s" href="#">Скачать шаблон обоснования →</a><a class="r-btn r-btn-p" href="https://xsudsoft.ru" target="_blank">Запросить демо →</a>';
-  } else {
-    box.classList.add('r-low');
-    msg.innerHTML = '<strong>Вы сделали первый шаг.</strong> Запросите демо XSUD и посмотрите, как автоматизация может усилить ваш отдел.';
-    acts.innerHTML = '<a class="r-btn r-btn-p" href="https://xsudsoft.ru" target="_blank">Запросить демонстрацию XSUD →</a>';
+(function() {
+  var short = ['в','с','к','о','у','и','а','я','на','за','по','до','со','во','ко','из','от','об','но','да','не','ни','ну','под','над','про','без','для','при','все','что','как','еще','ещё','уже','был','она','они','это','то','или','ли','же','бы','ль'];
+  var re = new RegExp('(^|[\\s\\u00A0])(' + short.join('|') + ')[\\s\\u00A0]+(?=\\S)', 'gi');
+  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+  var nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  for (var i = 0; i < nodes.length; i++) {
+    var n = nodes[i];
+    if (n.parentElement && !/^(script|style|textarea|pre)$/i.test(n.parentElement.tagName)) {
+      n.nodeValue = n.nodeValue.replace(re, '$1$2\u00A0');
+    }
   }
-}
+})();
 </script>
 </body>
 </html>
